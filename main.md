@@ -130,10 +130,10 @@ Treat these as excluded from every `git add`/`git push` performed by `!NREP` or 
 
 ## 6. Linking Everything Together
 
-Use `[[wikilinks]]` between `main.md`, `commands.md`, `skills/README.md`, `memory/errors/*.md`, `memory/Workflow.md`, `memory/canvas-rules.md`, `TODO.canvas`, `Visual.canvas`, and any topic/docs files so the Obsidian graph view reflects real relationships, not just folder proximity.
+Use `[[wikilinks]]` between `main.md`, `commands.md`, `skills/README.md`, `memory/errors/*.md`, `memory/Workflow.md`, `memory/canvas-rules.md`, `Visual.canvas`, and any topic/docs files so the Obsidian graph view reflects real relationships, not just folder proximity.
 
 Minimum linking rules:
-- `main.md` links to [[commands.md]], [[skills/README.md]], [[memory/errors/README.md]], [[memory/Workflow.md]], [[memory/canvas-rules.md]], [[Visual.canvas]], and [[TODO.canvas]].
+- `main.md` links to [[commands.md]], [[skills/README.md]], [[memory/errors/README.md]], [[memory/Workflow.md]], [[memory/canvas-rules.md]], and [[Visual.canvas]].
 - Every file in `memory/errors/` links back to `main.md`.
 - `Visual.canvas` contains a card per top-level file/folder, linked to the real file.
 - New docs you create should link back to whichever of the above they extend, so nothing becomes an orphan node in the graph.
@@ -142,20 +142,7 @@ Minimum linking rules:
 
 ## 7. Startup Checklist (run this when `main.md` is first read)
 
-To bring a new project under Lazarus, in order:
-
-1. **Create `Lazarus.md` in the project** — add a `Lazarus.md` file at the root of the project you want to wire into Lazarus. It should point back to this vault (e.g. link to `[[main.md]]` and note that Lazarus governs the agent's behavior here).
-2. **Create a copy-pasteable bootstrap field** — produce a block the user can paste into any future chat so the agent loads Lazarus. Insert the correct absolute path to the Lazarus folder. The field looks exactly like this (replace `PATH-TO\Lazarus` with the real path):
-
-   ```
-   go to "PATH-TO\Lazarus\main.md"
-   initialize and learn it.
-   make sure u know everything about Lazarus and use it for any future prompt.
-   ```
-
-3. **Run `!Info`** — execute the `!Info` command (see [[commands.md]]) to verify everything is wired up correctly and report the active configuration.
-
-After bootstrap, the standing operating loop applies:
+To bring a new project under Lazarus, follow §7 in [[README.md]] (new-user bootstrap). After bootstrap, the standing operating loop applies:
 
 4. **§0** — ensure `.laz/` exists in the project folder; create it if missing.
 5. **§4** — scan the prompt for `!`-commands; honor them first and track scope session-long (R4b/R5/R6).
@@ -175,4 +162,3 @@ After bootstrap, the standing operating loop applies:
 - [[memory/Workflow.md]] — mandatory step-by-step execution loop (run on every task)
 - [[memory/canvas-rules.md]] — rules for creating high-quality `*.canvas` files
 - [[Visual.canvas]] — vault map
-- [[TODO.canvas]] — open tasks

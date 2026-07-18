@@ -10,9 +10,7 @@
 		{"id":"workflow","type":"file","file":"memory/Workflow.md","x":460,"y":400,"width":360,"height":200},
 		{"id":"canvasrules","type":"file","file":"memory/canvas-rules.md","x":460,"y":640,"width":360,"height":160},
 		{"id":"g-config","type":"text","text":"## 🛡️ Excluded","x":460,"y":840,"width":360,"height":60,"color":"5"},
-		{"id":"obs","type":"file","file":".obsidian","x":460,"y":940,"width":360,"height":280},
-		{"id":"g-tasks","type":"text","text":"## ✅ Tasks","x":960,"y":60,"width":300,"height":60,"color":"3"},
-		{"id":"todo","type":"file","file":"TODO.canvas","x":960,"y":160,"width":300,"height":90}
+		{"id":"obs","type":"file","file":".obsidian","x":460,"y":940,"width":360,"height":280}
 	],
 	"edges":[
 		{"id":"e1","fromNode":"title","fromSide":"bottom","toNode":"g-core","toSide":"top","color":"1"},
@@ -20,11 +18,9 @@
 		{"id":"e3","fromNode":"cmds","fromSide":"bottom","toNode":"visual","toSide":"top","color":"1"},
 		{"id":"e4","fromNode":"g-mem","fromSide":"bottom","toNode":"mreadme","toSide":"top","color":"4"},
 		{"id":"e4b","fromNode":"mreadme","fromSide":"bottom","toNode":"workflow","toSide":"top","color":"4"},
-		{"id":"e5","fromNode":"g-tasks","fromSide":"bottom","toNode":"todo","toSide":"top","color":"3"},
 		{"id":"e6","fromNode":"g-config","fromSide":"bottom","toNode":"obs","toSide":"top","color":"5"},
 		{"id":"e7","fromNode":"main","fromSide":"right","toNode":"mreadme","toSide":"left","color":"6"},
 		{"id":"e7b","fromNode":"main","fromSide":"right","toNode":"workflow","toSide":"left","color":"6"},
-		{"id":"e8","fromNode":"cmds","fromSide":"right","toNode":"todo","toSide":"left","color":"6"},
 		{"id":"e9","fromNode":"visual","fromSide":"right","toNode":"obs","toSide":"left","color":"6"},
 		{"id":"e4c","fromNode":"workflow","fromSide":"bottom","toNode":"canvasrules","toSide":"top","color":"4"}
 	]

@@ -4,6 +4,21 @@ A personal operating system for a coding agent — the instructions, commands, s
 
 Lazarus is not an application; it is the **brain/configuration** layer. It defines how the agent should think, plan, review, and push code, and it ships a reusable library of visual designs other projects can draw from.
 
+## New to Lazarus? (getting a project set up)
+
+These steps wire a new project into Lazarus. They're for you, the human — the agent follows its own internal checklist.
+
+1. **Create a `Lazarus.md` in your project** — add a `Lazarus.md` file at the root of the project you want to wire into Lazarus. Have it point back to this vault (e.g. link to `main.md` and note that Lazarus governs the agent's behavior here).
+2. **Create a copy-pasteable bootstrap message** — keep a block like the one below handy to paste into any future chat so the agent loads Lazarus. Replace `PATH-TO\Lazarus` with the real absolute path to this folder:
+
+   ```
+   go to "PATH-TO\Lazarus\main.md"
+   initialize and learn it.
+   make sure u know everything about Lazarus and use it for any future prompt.
+   ```
+
+3. **Run `!Info`** — ask the agent to run the `!Info` command to verify everything is wired up correctly and report the active configuration.
+
 ## What's inside
 
 | Path | Purpose |
@@ -14,7 +29,7 @@ Lazarus is not an application; it is the **brain/configuration** layer. It defin
 | `DESIGN/` | A library of design/visual-language snapshots (e.g. `Charon`) the agent reuses when building or restyling UIs. |
 | `memory/` | Long-term memory: error log (`errors/`), the mandatory execution `Workflow.md`, and `canvas-rules.md`. |
 | `AGENTS.md` | Project-level agent instructions, indexing the available skills and commands. |
-| `Visual.canvas` / `TODO.canvas` | Vault maps / open-task boards (Obsidian canvas format). |
+| `Visual.canvas` | Vault map (Obsidian canvas format). |
 
 ## How it works
 
