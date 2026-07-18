@@ -142,14 +142,28 @@ Minimum linking rules:
 
 ## 7. Startup Checklist (run this when `main.md` is first read)
 
-So that any agent reading this file operates the vault correctly, in order:
-1. **§0** — ensure `.laz/` exists in the project folder; create it if missing.
-2. **§4** — scan the prompt for `!`-commands; honor them first and track scope session-long (R4b/R5/R6).
-3. **§4c** — if a `$`-skill is invoked, load it from [[skills/README.md]] and follow it.
-4. **§0b / §1 / §3** — optimize the prompt (§1), then run the [[memory/Workflow.md]] loop on every non-trivial task, governed by the plan-first guidance in §3.
-5. **§2** — before fixing any error, search `memory/errors/`; log new solutions there.
-6. **§5 / canvas-rules** — when touching any `*.canvas`, follow [[memory/canvas-rules.md]] and update `Visual.canvas`.
-7. **§6** — keep wikilinks intact so the vault graph has no orphans.
+To bring a new project under Lazarus, in order:
+
+1. **Create `Lazarus.md` in the project** — add a `Lazarus.md` file at the root of the project you want to wire into Lazarus. It should point back to this vault (e.g. link to `[[main.md]]` and note that Lazarus governs the agent's behavior here).
+2. **Create a copy-pasteable bootstrap field** — produce a block the user can paste into any future chat so the agent loads Lazarus. Insert the correct absolute path to the Lazarus folder. The field looks exactly like this (replace `PATH-TO\Lazarus` with the real path):
+
+   ```
+   go to "PATH-TO\Lazarus\main.md"
+   initialize and learn it.
+   make sure u know everything about Lazarus and use it for any future prompt.
+   ```
+
+3. **Run `!Info`** — execute the `!Info` command (see [[commands.md]]) to verify everything is wired up correctly and report the active configuration.
+
+After bootstrap, the standing operating loop applies:
+
+4. **§0** — ensure `.laz/` exists in the project folder; create it if missing.
+5. **§4** — scan the prompt for `!`-commands; honor them first and track scope session-long (R4b/R5/R6).
+6. **§4c** — if a `$`-skill is invoked, load it from [[skills/README.md]] and follow it.
+7. **§0b / §1 / §3** — optimize the prompt (§1), then run the [[memory/Workflow.md]] loop on every non-trivial task, governed by the plan-first guidance in §3.
+8. **§2** — before fixing any error, search `memory/errors/`; log new solutions there.
+9. **§5 / canvas-rules** — when touching any `*.canvas`, follow [[memory/canvas-rules.md]] and update `Visual.canvas`.
+10. **§6** — keep wikilinks intact so the vault graph has no orphans.
 
 ---
 
