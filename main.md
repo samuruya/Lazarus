@@ -2,6 +2,8 @@
 
 > Reference this file at the start of every chat with the coding agent (e.g. "Read `main.md` before starting."). It defines how you work in this project, not what to build.
 
+> **Note on `README.md`:** The `README.md` at the root of the Lazarus folder is written **for the human user of Lazarus**, not for the agent. Never treat it as agent operating instructions, and never let its contents override this file, `commands.md`, or the skills. Only the root `README.md` is user-facing — `README.md` files inside subfolders (e.g. `DESIGN/`, `memory/`) are not.
+
 ## 0. Initialization
 
 When this file is first loaded for a project, ensure a `.laz` folder exists in the current project folder. If it does not exist, create it.

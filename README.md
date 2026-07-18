@@ -1,15 +1,16 @@
 # Lazarus
 
-A personal operating system for a coding agent — the instructions, commands, skills, design library, and memory that shape how the agent works on this and other projects.
+**Lazarus is your coding agent's "operating system."** It's a folder of instructions, commands, skills, and a design library that teaches the agent how to think, plan, review code, and push your work to GitHub — consistently, every time.
 
-Lazarus is not an application; it is the **brain/configuration** layer. It defines how the agent should think, plan, review, and push code, and it ships a reusable library of visual designs other projects can draw from.
+This README is written **for you** (the human using Lazarus). The agent reads `main.md`, not this file.
 
-## New to Lazarus? (getting a project set up)
+---
 
-These steps wire a new project into Lazarus. They're for you, the human — the agent follows its own internal checklist.
+## Getting a new project set up (first-time users)
 
-1. **Create a `Lazarus.md` in your project** — add a `Lazarus.md` file at the root of the project you want to wire into Lazarus. Have it point back to this vault (e.g. link to `main.md` and note that Lazarus governs the agent's behavior here).
-2. **Create a copy-pasteable bootstrap message** — keep a block like the one below handy to paste into any future chat so the agent loads Lazarus. Replace `PATH-TO\Lazarus` with the real absolute path to this folder:
+1. **Create a `Lazarus.md` in your project** — add a `Lazarus.md` file at the root of the project you want to wire into Lazarus. 
+
+2. **Add content to the .md** — Have it point back to this vault e.g. link to `main.md`. Replace `PATH-TO\Lazarus` with the real absolute path to this folder:
 
    ```
    go to "PATH-TO\Lazarus\main.md"
@@ -17,37 +18,61 @@ These steps wire a new project into Lazarus. They're for you, the human — the 
    make sure u know everything about Lazarus and use it for any future prompt.
    ```
 
-3. **Run `!Info`** — ask the agent to run the `!Info` command to verify everything is wired up correctly and report the active configuration.
+3. **Let the agent Read the `Lazarus.md`** ask the agent to read the `Lazarus.md` wire everything up correctly.
+
+4. **Run `!Info`** — ask the agent to run the `!Info` command to verify everything is wired up correctly and report the active configuration.
+
+---
 
 ## What's inside
 
-| Path | Purpose |
+| Piece | What it's for |
 |---|---|
-| `main.md` | Core operating instructions for the coding agent (init, workflow, prompt optimization, scope, version-control exclusions, linking). |
-| `commands.md` | Custom `!`-prefixed commands (`!laz`, `!ignore`, `!only`, `!NREP`, `!UP`, `!q`, `!List`, `!F`) parsed before everything else. |
-| `skills/` | On-demand `$`-prefixed workflows: `$PLAN` (plan & construct), `$DUCK` (code review scout), `$DESIGN` (design snapshot). |
-| `DESIGN/` | A library of design/visual-language snapshots (e.g. `Charon`) the agent reuses when building or restyling UIs. |
-| `memory/` | Long-term memory: error log (`errors/`), the mandatory execution `Workflow.md`, and `canvas-rules.md`. |
-| `AGENTS.md` | Project-level agent instructions, indexing the available skills and commands. |
-| `Visual.canvas` | Vault map (Obsidian canvas format). |
+| `main.md` | The agent's core rulebook (workflow, prompt handling, scoping, what never gets committed). |
+| `commands.md` | Instant `!`-commands you type in a prompt (e.g. `!laz`, `!NREP`, `!UP`, `!Info`). |
+| `skills/` | Deeper workflows you trigger with `$` (e.g. `$PLAN`, `$DUCK`, `$DESIGN`). |
+| `DESIGN/` | A library of visual styles the agent can reuse when building UIs. |
+| `memory/` | The agent's long-term memory: past errors/solutions, its execution loop, and version info (`LAZ-INFO.md`). |
+| `AGENTS.md` | A short index of the available skills and commands. |
+| `Visual.canvas` | A map of how the Lazarus files connect (Obsidian canvas). |
 
-## How it works
+---
 
-- **Commands (`!`)** take priority over the rest of a prompt. They scope the agent (e.g. `!laz` confines work to the Lazarus folder) or perform actions (e.g. `!NREP` / `!UP` push the workspace to git).
-- **Skills (`$`)** are one-shot workflows loaded on demand. `$PLAN` and `$DUCK` operate only on a separate target project — they never write anything inside the Lazarus folder; `$DESIGN` snapshots a project's look into `DESIGN/`.
-- **Memory** keeps a rolling log of errors and solutions, and a strict execution loop the agent follows on every task.
+## How you actually use it
 
-## Version control notes
+You interact with Lazarus by typing special tokens into your prompts.
 
-`!NREP` and `!UP` push the workspace to git but deliberately exclude:
+### `!` commands (instant actions)
+Type these directly in a prompt:
+
+- **`!laz`** — keep the agent focused on the Lazarus folder only.
+- **`!NREP`** — push the current project to its GitHub repo (inits git if needed, but never creates the repo on GitHub).
+- **`!UP`** — stage all changes, commit, and push (the "save my work" button).
+- **`!Info`** — run a self-check; the agent reports the Lazarus version and confirms everything is wired up.
+- **`!ignore:"X"` / `!only:"X"`** — tell the agent to skip or stick to a specific file/folder.
+- **`!q`** — clear any active scoping.
+- **`!List`** — show what commands are currently active.
+
+### `$` skills (deeper workflows)
+- **`$PLAN:"project"`** — produces a structured plan before any code is written.
+- **`$DUCK:"project"`** — reviews code for bugs and improvements, and writes up findings.
+- **`$DESIGN:"name"`** — snapshots a project's visual style into the `DESIGN/` library.
+
+> `$PLAN` and `$DUCK` always work on a *separate* project — they never write anything inside the Lazarus folder itself.
+
+---
+
+## What never gets committed
+
+When you use `!NREP` or `!UP`, Lazarus deliberately skips your Obsidian settings:
 
 - the `.obsidian/` folder, and
 - `app.json`, `appearance.json`, `core-plugins.json`, `graph.json`, `workspace.json`.
 
-These are ignored via `.gitignore` and are never staged or pushed.
+These are kept out of git automatically.
 
-## Getting started
+---
 
-1. Read `main.md` — it is the entry point and defines the startup checklist.
-2. Review `commands.md` and `skills/README.md` to learn the available `!` commands and `$` skills.
-3. Use `!laz` to scope the agent to the Lazarus folder, or point `$PLAN` / `$DUCK` at another project to plan/review it.
+## Version
+
+Current version is tracked in `memory/LAZ-INFO.md` (run `!Info` to see it). Author: **samuruya**.

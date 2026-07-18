@@ -2,7 +2,7 @@
 
 Current Lazarus version.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.3
 - **Commit:** 3b0189a
 - **Date:** 2026-07-18
 - **Author:** samuruya
