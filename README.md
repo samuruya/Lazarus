@@ -18,7 +18,7 @@ This README is written **for you** (the human using Lazarus). The agent reads `m
    make sure u know everything about Lazarus and use it for any future prompt.
    ```
 
-3. **Let the agent Read the `Lazarus.md`** ask the agent to read the `Lazarus.md` wire everything up correctly.
+3. **Let the agent Read the `Lazarus.md`** ask the agent to read the `Lazarus.md` and wire everything up correctly.
 
 4. **Run `!Info`** — ask the agent to run the `!Info` command to verify everything is wired up correctly and report the active configuration.
 
